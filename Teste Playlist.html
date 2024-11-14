@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Playlist Emocional</title>
+    <link rel="stylesheet" href="style teste.css">
+</head>
+<body>
+    <header>
+        <h1>Descubra Sua Playlist Emocional</h1>
+    </header>
+
+    <div class="container">
+        <main>
+            <section id="playlist-test">
+                <h2>Responda ao Teste para Receber uma Playlist Recomendada</h2>
+                <div id="question-container">
+                    <p id="question-text"></p>
+                    <div>
+                        <label><input type="radio" name="answer" value="0"> Discordo totalmente</label><br>
+                        <label><input type="radio" name="answer" value="1"> Discordo</label><br>
+                        <label><input type="radio" name="answer" value="2"> Neutro</label><br>
+                        <label><input type="radio" name="answer" value="3"> Concordo</label><br>
+                        <label><input type="radio" name="answer" value="4"> Concordo totalmente</label>
+                    </div>
+                    <button id="prev-btn">Voltar</button>
+                    <button id="next-btn">Confirmar</button>
+                </div>
+                <div id="result-container" style="display:none;">
+                    <h3>Seu Resultado:</h3>
+                    <p id="result-text"></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const questions = [
+            { text: "Você se sente frequentemente feliz e animado?", emotion: "Alegria" },
+            { text: "Sente-se calmo e relaxado na maior parte do tempo?", emotion: "Calmo" },
+            { text: "Está se sentindo apaixonado por alguém ou algo?", emotion: "Apaixonado" },
+            { text: "Sente que está com ansiedade ou preocupação constante?", emotion: "Ansiedade" },
+            { text: "Tem se lembrado de momentos especiais do passado?", emotion: "Nostalgia" },
+            { text: "Tem sentido uma motivação extra para alcançar seus objetivos?", emotion: "Motivação" },
+            { text: "Tem se sentido introspectivo, refletindo sobre a vida?", emotion: "Reflexão" },
+            { text: "Tem sentido falta de alguém ou de algum lugar?", emotion: "Saudade" },
+            { text: "Tem passado por momentos de tristeza?", emotion: "Tristeza" }
+        ];
+    
+        const playlistLinks = {
+            Alegria: {
+                youtube: "https://music.youtube.com/playlist?list=PLa26d-dWyowFl4J9datdy3pxTk0ZXq-At&si=G4Ph7tkP8LheLzR0",
+                spotify: "https://open.spotify.com/playlist/1GPxY543qjNukpdRD9xWPc?si=0d340685253b4473"
+            },
+            Calmo: {
+                youtube: "https://www.youtube.com/results?search_query=playlist+calma",
+                spotify: "hhttps://open.spotify.com/playlist/3WlAfHbriUPICeO5CfACnt?si=e7cb9cf5d4be4bfd"
+            },
+            Apaixonado: {
+                youtube: "https://music.youtube.com/playlist?list=PLFK4_Aq_0YeR4GzHdAUWCVyM3iuwQzNSw&si=oSfznS5egfjyREfP",
+                spotify: "https://open.spotify.com/playlist/0nRMhGo4dwel83pnOVv8ww?si=8e248975c2a54b8d"
+            },
+            Ansiedade: {
+                youtube: "https://www.youtube.com/results?search_query=playlist+relaxante",
+                spotify: "https://open.spotify.com/playlist/1aHiTAQFmNmuaVDbGBANyo?si=2908a012e4264294"
+            },
+            Nostalgia: {
+                youtube: "https://www.youtube.com/results?search_query=playlist+nostalgia",
+                spotify: "https://open.spotify.com/playlist/1XgEpGjHxiaBPRxkPLYKRb?si=723392d0f86847de"
+            },
+            Motivação: {
+                youtube: "https://music.youtube.com/playlist?list=RDCLAK5uy_krpFG2bwCuHXGO_Mibn08UokoL_yoIT70&playnext=1&si=dGc1G5lyMGaeUqdU",
+                spotify: "https://open.spotify.com/playlist/1XPU8xh6RTOJ1bQusGUFqx?si=a9d75d8c0d3c4d5e"
+            },
+            Reflexão: {
+                youtube: "https://www.youtube.com/results?search_query=playlist+reflexão",
+                spotify: "https://open.spotify.com/playlist/3fEG742HqaTFKAFMA0Dg0I?si=a11ada77eda54dbc"
+            },
+            Saudade: {
+                youtube: "https://music.youtube.com/playlist?list=PLlPjhtbJ_eeTaMyrrWXfLXDpUNiiNDL0r&si=X5nZ-rk23OXlIQ0E",
+                spotify: "https://open.spotify.com/playlist/6i90bopApcQXhxcwhJ2pyk?si=0fe108b80dde4ae2"
+            },
+            Tristeza: {
+                youtube: "https://music.youtube.com/playlist?list=PLTZKmMOVT27n_4yXZ9IXB56kULkgEARJK&si=90T5Gdi12tWmzqS3",
+                spotify: "https://open.spotify.com/playlist/35V3ZpspucNggeY5651fzR?si=c8dbaf23ea9d4e0f"
+            }
+        };
+    
+        const totalQuestions = questions.length;
+        let currentQuestionIndex = 0;
+        let scores = {
+            Tristeza: 0,
+            Alegria: 0,
+            Calmo: 0,
+            Apaixonado: 0,
+            Ansiedade: 0,
+            Nostalgia: 0,
+            Motivação: 0,
+            Reflexão: 0,
+            Saudade: 0
+        };
+    
+        function showQuestion(index) {
+            document.getElementById('question-text').innerText = questions[index].text;
+            const radios = document.querySelectorAll('input[name="answer"]');
+            radios.forEach(radio => radio.checked = false);
+            document.getElementById('prev-btn').disabled = index === 0;
+            document.getElementById('next-btn').innerText = index === totalQuestions - 1 ? "Finalizar" : "Confirmar";
+        }
+    
+        function showResult() {
+            const highestEmotion = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+            const resultDiv = document.getElementById('result-container');
+            resultDiv.style.display = 'block';
+    
+            const youtubeLink = playlistLinks[highestEmotion].youtube;
+            const spotifyLink = playlistLinks[highestEmotion].spotify;
+            
+            document.getElementById('result-text').innerHTML = `
+                Você está se sentindo predominantemente <strong>${highestEmotion}</strong>!<br>
+                Escolha sua plataforma de música para acessar a playlist:
+                <ul>
+                    <li><a href="${youtubeLink}" target="_blank">YouTube</a></li>
+                    <li><a href="${spotifyLink}" target="_blank">Spotify</a></li>
+                </ul>
+            `;
+            document.getElementById('question-container').style.display = 'none';
+        }
+    
+        document.getElementById('next-btn').addEventListener('click', () => {
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            if (selectedOption) {
+                const score = parseInt(selectedOption.value);
+                const emotion = questions[currentQuestionIndex].emotion;
+                scores[emotion] += score;
+    
+                if (currentQuestionIndex < totalQuestions - 1) {
+                    currentQuestionIndex++;
+                    showQuestion(currentQuestionIndex);
+                } else {
+                    showResult();
+                }
+            } else {
+                alert("Por favor, selecione uma opção.");
+            }
+        });
+    
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+            }
+        });
+
+// Detecta a tecla Enter e a trata como o botão "Confirmar"
+         document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+             event.preventDefault(); // Previne o comportamento padrão do Enter em formulários
+             document.getElementById('next-btn').click();
+            }
+        });
+
+showQuestion(currentQuestionIndex);
+</script>
+    

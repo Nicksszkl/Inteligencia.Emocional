@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos - Plataforma de Entretenimento</title>
+    <style>
+        /* Estilos globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c7873;
+            color: #fff;
+        }
+
+        .top-bar {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .logo-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .hero {
+            height: 400px;
+            background-image: url('https://i.pinimg.com/originals/89/3a/ab/893aab3164a1d0a15c21af820a4ea670.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-text {
+            background-color: rgba(111, 109, 109, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero h1,
+        .hero p {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-text p {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .games {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .game-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .game {
+            width: 200px;
+            padding: 20px;
+            background-color: #e0f0ef;
+            margin: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .game img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .game h2 {
+            font-size: 18px;
+            color: #2c7873;
+            margin-top: 10px;
+        }
+
+        .game p {
+            font-size: 14px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        footer {
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho e barra de navegação -->
+    <header>
+        <div class="top-bar">Bem-vindo à Plataforma de Jogos</div>
+        <div class="logo-nav">
+            <h1>Plataforma de Entretenimento</h1>
+            <nav>
+                <ul>
+                    <li><a href="Página Inicial.html">Home</a></li>
+                    <li><a href="Teste SPSI.html">Teste SPSI</a></li>
+                    <li><a href="Teste Playlist.html">Playlist</a></li>
+                    <li><a href="Jogos.html">Jogos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Hero / Introdução -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Bem-vindo à nossa seção de jogos</h1>
+            <p>Descubra os melhores jogos para se divertir e relaxar. Encontre o que mais combina com você!</p>
+        </div>
+    </section>
+
+    <!-- Seção de Jogos em Destaque -->
+    <section class="games">
+        <h2>Jogos em Destaque</h2>
+        <div class="game-grid">
+            <div class="game">
+                <img src="https://yt3.ggpht.com/97QO-jcI1kxZBCizFR9uhIOQISl_yq8-5tPUkaYSFF9kQKynPqtLfBloQKMfL1x9VRstJI7fJ2aO2kA=s288-rw-nd-v1" alt="Jogo 1">
+                <h2><a href="https://www.youtube.com/playables/UgkxrMWCETUzrZskkwqOywiZZ-xjKNjqR5YQ">Sinuca</a></h2>
+                
+            </div>
+            <div class="game">
+                <img src="https://stackbounce.h5games.usercontent.goog/v/1aqsvv0aegbjg/images/big_icon.jpeg=s288-rw-nd-v1" alt="Jogo 2">
+                <h2><a href="https://www.youtube.com/playables/UgkxHHtsak1SC8mRGHMZewc4HzeAY3yhPPmJ">Stake Bounce</a></h2>
+                
+            </div>
+            <div class="game">
+                <img src="https://yt3.ggpht.com/M606FXPaUfeAgEBurYjNXWt_khP8QAstRu1XUdkS6S4pTeJcJLhHLdUm7N1dGOW_k5uxLzmhILvM=s400-rw-nd-v1" alt="Jogo 3">
+                <h2><a href="https://www.youtube.com/playables/Ugkx2d5qQg5_Snq2mIm4BC1tyrHkdS_2daYs">Cut The Rope</a></h2>
+                
+            </div>
+            <div class="game">
+                <img src="https://yt3.ggpht.com/tQrBCECuO9-TPC43k_HDX3_pjqKva70Kmg9iXiYI6dYyCiMs626I1D476CVwRB7yKroPcTZ6nT1y=s400-rw-nd-v1" alt="Jogo 4">
+                <h2><a href="https://www.youtube.com/playables/UgkxySxYCWeSMlXxcw_rKRsSAd2YaUTvzWLB">Hill Climb Racing Lite</a></h2>
+
+            </div>
+            <div class="game">
+                <img src="https://yt3.ggpht.com/Hj2johEY4_2RkZBQXzp3FbMk359EghlXpLipZzpbOu3kkyTSuHHSHhqRKh8V7p0K5qThaLFGFW7vvw=s400-rw-nd-v1" alt="Jogo 5">
+                <h2><a href="https://www.youtube.com/playables/UgkxXpLALBdUxSC7jCKF4z9yedUBoGOiP--m">Flappy Dunk</a></h2>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Plataforma de Entretenimento - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

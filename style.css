@@ -1,0 +1,174 @@
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #2c7873;
+    color: #fff;
+}
+
+.top-bar {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.logo-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.hero {
+    height: 400px; /* Ajuste a altura conforme necessário */
+    background-image: url('https://i.pinimg.com/originals/89/3a/ab/893aab3164a1d0a15c21af820a4ea670.jpg'); /* Caminho para a imagem de fundo */
+    background-size: cover; /* Faz com que a imagem cubra toda a seção */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Texto branco para contrastar com a imagem */
+    text-align: center;
+}
+
+
+.hero-text {
+    background-color: rgba(111, 109, 109, 0.5); /* Fundo preto semi-transparente */
+    padding: 20px;
+    border-radius: 10px; /* Arredonda os cantos */
+    color: white;
+}
+
+.hero h1,
+.hero p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adiciona sombra preta ao texto */
+}
+
+
+.hero-text p {
+    color: #fff;
+    font-size: 18px;
+}
+
+.services {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.service-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service {
+    
+    width: 200px;
+    padding: 20px;
+    background-color: #e0f0ef;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.welcome {
+    display: flex;
+    padding: 40px;
+    background-color: #e0f0ef;
+    text-align: center;
+}
+
+.welcome-text {
+    margin: auto;
+}
+
+.articles {
+    padding: 40px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.article-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.article {
+    width: 200px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.faq {
+    padding: 40px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.faq-content p {
+    margin-bottom: 10px;
+}
+
+.appointment {
+    padding: 40px;
+    background-color: #2c7873;
+    color: #fff;
+    text-align: center;
+}
+
+.appointment input,
+.appointment textarea {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.appointment button {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #2c7873;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}

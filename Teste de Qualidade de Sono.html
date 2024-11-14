@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Qualidade de Sono</title>
+    <link rel="stylesheet" href="style teste.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <h1>Teste Qualidade de Sono</h1>
+        </div>
+    </header>
+
+    <section class="container">
+        <div id="question-container">
+            <h2><span id="current-question"></span></h2>
+            <p id="question-text"></p>
+            <div id="options-container">
+                <label><input type="radio" name="answer" value="0"> Nunca</label>
+                <label><input type="radio" name="answer" value="1"> Raramente</label>
+                <label><input type="radio" name="answer" value="2"> Às vezes</label>
+                <label><input type="radio" name="answer" value="3"> Frequentemente</label>
+                <label><input type="radio" name="answer" value="4"> Sempre</label>
+            </div>
+            <button id="prev-btn" disabled>Voltar</button>
+            <button id="next-btn">Confirmar</button>
+        </div>
+
+        <div id="result-container" style="display: none;">
+            <h2>Resultado do Teste</h2>
+            <p id="result-text"></p>
+        </div>
+    </section>
+
+    <script src="Teste de Qualidade de Sono.js"></script>
+</body>
+</html>
